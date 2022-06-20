@@ -1,0 +1,12 @@
+Nuova mail pervenuta dal progetto Partenza
+
+Riepilogo dei dati inseriti nel modulo:
+- Nome: %%nome%%
+- Cognome: %%cognome%%
+- Telefono: %%telefono%%
+- e-mail: %%mail%%
+
+Testo: %%testo_mail%%
+
+--
+Questa e-mail e' stata generata da un sistema automatico ed eventuali risposte non saranno gestite

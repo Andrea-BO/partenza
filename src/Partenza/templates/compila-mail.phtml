@@ -1,0 +1,61 @@
+<main class="page contact-us-page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-center text-info">Compila la mail</h2>
+                <p class="info-short">Compila i campi richiesti e premi il pulsante "Invia"</p>
+                <p class="text-center">Se hai dubbi sulla compilazione della mail, chiama il numero <?= $numTelefonoInfo ?? 'BOOOH' ?></p>
+            </div>
+            <form method="post" action="<?=$this->url('invia_mail')?>">
+                <?php if(isset($sys_error)){ ?>
+                    <div class="alert alert-<?=$sys_error['esito']?>" role="alert">
+                        <?php if($sys_error['esito']==='danger'){?>
+                            <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Si &egrave; verificato un errore</h4>
+                        <?php }else{ ?>
+                            <h4 class="alert-heading"><i class="far fa-check-circle"></i></i> Operazione conclusa</h4>
+                        <?php } ?>
+                        <hr>
+                        <p class="mb-0"><?=$sys_error['msg']?></p>
+                    </div>
+                <?php } ?>
+
+                <div class="form-group">
+                    <label for="nome">Nome*</label>
+                    <input class="form-control <?=(isset($errori_campi['nome']) ? ' is-invalid':'')?>" type="text" id="nome" name="nome" value="<?=(isset($valori_campi['nome']) ? $valori_campi['nome']:'')?>">
+                    <?php if(isset($errori_campi['nome'])){ ?>
+                        <div class="invalid-feedback d-block" id="valida-nome"><?=$errori_campi['nome']?></div>
+                    <?php } ?>
+                </div>
+                <div class="form-group">
+                    <label for="cognome">Cognome*</label>
+                    <input class="form-control <?=(isset($errori_campi['cognome']) ? ' is-invalid':'')?>" type="text" id="cognome" name="cognome" value="<?=(isset($valori_campi['cognome']) ? $valori_campi['cognome']:'')?>">
+                    <?php if(isset($errori_campi['cognome'])){ ?>
+                        <div class="invalid-feedback d-block" id="valida-cognome"><?=$errori_campi['cognome']?></div>
+                    <?php } ?>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Telefono*</label>
+                    <input class="form-control <?=(isset($errori_campi['telefono']) ? ' is-invalid':'')?>" type="text" id="telefono" name="telefono" value="<?=(isset($valori_campi['telefono']) ? $valori_campi['telefono']:'')?>">
+                    <?php if(isset($errori_campi['telefono'])){ ?>
+                        <div class="invalid-feedback d-block" id="valida-telefono"><?=$errori_campi['telefono']?></div>
+                    <?php } ?>
+                </div>
+                <div class="form-group">
+                    <label for="mail">Indirizzo e-mail*</label>
+                    <input class="form-control <?=(isset($errori_campi['mail']) ? ' is-invalid':'')?>" type="email" id="mail" name="mail" value="<?=(isset($valori_campi['mail']) ? $valori_campi['mail']:'')?>">
+                    <?php if(isset($errori_campi['mail'])){ ?>
+                        <div class="invalid-feedback d-block" id="valida-mail"><?=$errori_campi['mail']?></div>
+                    <?php } ?>
+                </div>
+                <div class="form-group mt-4">
+                    <label for="testo_mail">Testo della mail</label>
+                    <textarea class="form-control" id="testo_mail" rows="5" name="testo_mail"><?=(isset($valori_campi['testo_mail']) ? $valori_campi['testo_mail']:'')?></textarea>
+                </div>
+                <div class="form-group">
+
+                    <button type="submit" class="btn btn-primary btn-block" role="button">Invia mail</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

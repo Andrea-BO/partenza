@@ -58,11 +58,13 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->get('/pagina3',[Partenza\Action\Pagina3Action::class],'pagina3');
 
     $app->get('/compila-mail',
-        [Partenza\Action\CompilaMailAction::class],
+        [
+        	Partenza\Middleware\ConfigAppMiddleware::class,
+        	Partenza\Action\CompilaMailAction::class
+        ],
         'compila_mail');
 
     $app->post('/compila-mail/invia-mail',
-        // array_merge($middlewareComuniBase, [ ... ]),
         [
             Partenza\Middleware\ConfigAppMiddleware::class,
             Partenza\Middleware\SendMailMiddleware::class,

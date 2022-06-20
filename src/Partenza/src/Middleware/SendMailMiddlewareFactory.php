@@ -13,9 +13,10 @@ class SendMailMiddlewareFactory
         // return new SendMailMiddleware();
         $configurazioneMail = $container->get('config')['mail'];
 
-        $classe = 'AAA SendMailMiddlewareFactory';
-         var_dump($classe, $configurazioneMail, $classe);
-         return Void_::class;
+      //  $classe = 'AAA SendMailMiddlewareFactory';
+      //  var_dump($classe, $configurazioneMail, $classe);
+        //die($classe);
+       //  return Void_::class;
 
         return new SendMailMiddleware($configurazioneMail);
     }

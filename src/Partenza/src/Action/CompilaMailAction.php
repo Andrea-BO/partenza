@@ -25,7 +25,7 @@ class CompilaMailAction implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
         // $tipoModulo = 1;
-        $numTelefonoInfo =  $request->getAttribute('configApp')['telefono_info']  ??  '012-345-678-90';
+        $numTelefonoInfo =  $request->getAttribute('configApp')['telefono_info']  ??  '0-1-2-3';
         // $servizi = $request->getAttribute('servizi')[$tipoModulo];
 //A//        $parametri = $request->getAttribute('parametri');
 
@@ -37,6 +37,13 @@ class CompilaMailAction implements RequestHandlerInterface
             'compila_mail', true
         );
 
+        //  funziona, ma va bene anche com'è fatto ora
+        $this->renderer->addDefaultParam(
+            TemplateRendererInterface::TEMPLATE_ALL,
+            'numTelefonoInfo', '987-654'
+        );
+
+
         $classe = 'AAA CompilaMailAction.php';
         // var_dump($classe, $request, $classe, $this->renderer, $classe);
         // return Void_::class;
@@ -45,7 +52,7 @@ class CompilaMailAction implements RequestHandlerInterface
         return new HtmlResponse($this->renderer->render(
             'partenza::compila-mail',
             [
-                'telefono_info' => $numTelefonoInfo,
+                'numTelefonoInfo' => $numTelefonoInfo,
                 // 'servizi' => $servizi,
                 // 'tipo_modulo' => $tipoModulo,
                 //'sys_error' => $parametri['system_error'] ?? null,

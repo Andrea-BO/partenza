@@ -4,7 +4,7 @@
             <div class="block-heading">
                 <h2 class="text-center text-info">Compila la mail</h2>
                 <p class="info-short">Compila i campi richiesti e premi il pulsante "Invia"</p>
-                <p class="text-center">Se hai dubbi sulla compilazione della mail, chiama il numero <?= $numTelefonoInfo ?? 'BOOOH' ?></p>
+                <p class="text-center">Se hai dubbi sulla compilazione della mail, chiama il numero <?= $numTelefonoInfo ?? 'NON TROVATO' ?></p>
             </div>
             <form method="post" action="<?=$this->url('invia_mail')?>">
                 <?php if(isset($sys_error)){ ?>
@@ -12,7 +12,7 @@
                         <?php if($sys_error['esito']==='danger'){?>
                             <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Si &egrave; verificato un errore</h4>
                         <?php }else{ ?>
-                            <h4 class="alert-heading"><i class="far fa-check-circle"></i></i> Operazione conclusa</h4>
+                            <h4 class="alert-heading"><i class="far fa-check-circle"></i> Operazione conclusa</h4>
                         <?php } ?>
                         <hr>
                         <p class="mb-0"><?=$sys_error['msg']?></p>

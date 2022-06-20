@@ -24,7 +24,7 @@ class SendMailMiddleware implements MiddlewareInterface
         $this->classe = 'CCC SendMailMiddleware.php';
       //  var_dump($configMail);
       //  var_dump($this->classe, $configMail, $this->classe);
-        die($this->classe);
+      //  die($this->classe);
        // return  Void_::class; // $handler->handle($request);
     }
 

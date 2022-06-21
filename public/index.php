@@ -17,7 +17,7 @@ require 'vendor/autoload.php';
     /** @var \Psr\Container\ContainerInterface $container */
     $container = require 'config/container.php';
 
-//    (new \SentryDelegator\ConfigureSentry())($container->get('config'));  //ANDREA
+ //   (new \SentryDelegator\ConfigureSentry())($container->get('config'));  //ANDREA
 
     /** @var \Mezzio\Application $app */
     $app = $container->get(\Mezzio\Application::class);

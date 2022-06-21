@@ -52,7 +52,7 @@ class SendMailMiddleware implements MiddlewareInterface
            //  $this->salvaLogMail($esitoInvioMail);
         }catch(\Exception $e){
             // echo $e->getMessage();
-            //  \Sentry\captureException($e);
+            \Sentry\captureException($e);
 
 
             $response = $handler->handle($request);

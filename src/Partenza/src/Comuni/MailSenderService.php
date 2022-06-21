@@ -116,7 +116,7 @@ class MailSenderService
             $mail->send();
 
         } catch (PHPMailerException $e) {
-            // \Sentry\captureException($e);
+            \Sentry\captureException($e);
 
             $esitoInvio = [
                 'inviato' => false,

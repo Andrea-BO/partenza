@@ -55,7 +55,8 @@
         "mezzio/mezzio-fastroute": "^3.0.3",
         "mezzio/mezzio-helpers": "^5.7",
         "mezzio/mezzio-laminasviewrenderer": "^2.2",
-        "phpmailer/phpmailer": "^6.6"
+        "phpmailer/phpmailer": "^6.6",
+        "sentry/sdk": "^3.2"
     },
     "require-dev": {
         "laminas/laminas-development-mode": "^3.3.0",
